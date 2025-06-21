@@ -16,9 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from apps.doc_parser.views import DocumentUploadView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('quiz/', include('apps.quiz_engine.urls')),
+    path('api/upload/', DocumentUploadView.as_view(), name='document-upload'),
 
 ]
